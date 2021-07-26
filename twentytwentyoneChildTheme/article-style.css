@@ -26,3 +26,6 @@ text-decoration: underline;
 .post-border-right{
     border-right: 2px solid rgb(29, 29, 29);
 }
+.post-date{
+    color: rgb(155, 165, 162);
+}
