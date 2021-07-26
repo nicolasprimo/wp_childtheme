@@ -2,3 +2,27 @@
 color: rgb(109, 111, 223);
 text-decoration: underline;
 }
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
+#post-float-left{
+  float:left;
+  width: 50%;
+  padding: 5px;
+}
+
+#post-float-right{
+    float:right;
+    width: 50%;
+    padding: 5px;
+}
+
+.post-author{
+    color: white;
+}
+
+.post-border-right{
+    border-right: 2px solid rgb(29, 29, 29);
+}
