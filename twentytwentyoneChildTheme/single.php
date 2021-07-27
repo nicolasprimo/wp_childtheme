@@ -1,18 +1,27 @@
 <?php get_header() ?>
 
 <div class="container">
-    <div class="post-border-right" id="post-float-left">
-        <h2 class="post-title"><?php  the_title() ?></h2>
-        <!-- Affichage de l'image mise en avant sur un article, verifiez bien que vous en ayez mise une sur votre article ! -->
+    <?php 
+    if ( have_posts() ) : 
+        while ( have_posts() ) : the_post(); 
+        ?>
+        <div class="post-border-right" id="post-float-left">
+        <h2 class="post-title"><?php  the_title() ?>
+    </h2>
         <?php the_post_thumbnail()
         ?>
-        <span class="post-author"><?php the_author_meta('display_name', 1); ?></span>
+        <!-- Grace au fait que l'on est dans la boucle while avec comme parametre the_post() on à accès a la functon the_author() qui permet de recuperer l'auteur du post -->
+        <span class="post-author"><?php the_author(); ?></span>
     </div>
     <div id="post-float-right">
-        <!-- Affichage de la date de l'article, la différence entre une methode qui commence par get_ ou non se situe dans le fait que devant une methode démarrant par get_ il faut écrire echo, "echo" sert en php a écrire des choses -->
-       <span class="post-date"> <?php echo get_the_date() ?></span>
+        <!-- echo get_the_date() peut etre remplacé par the_date() grace a notre boucle while avec le parmetre the_post() -->
+    <span class="post-date"> <?php the_date() ?></span>
         <?php the_content() ?>
     </div>
+    <?php
+        endwhile; 
+    endif; 
+    ?>
 </div>
 
 
